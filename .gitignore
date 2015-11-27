@@ -1,0 +1,6 @@
+# ignore some java setting files
+/.settings
+.classpath
+.project
+/target
+.DS_Store

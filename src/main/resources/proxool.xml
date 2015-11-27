@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- the proxool configuration can be embedded within your own application's.
+Anything outside the "proxool" tag is ignored. -->
+<something-else-entirely>
+  <proxool>
+    <alias>noveldb</alias>
+    <driver-url>jdbc:mysql://localhost:3306/zonghengnovel?characterEncoding=utf-8</driver-url>
+    <driver-class>com.mysql.jdbc.Driver</driver-class>
+    <driver-properties>
+      <property name="user" value="root"/>
+      <property name="password" value="root"/>
+    </driver-properties>
+    
+    <!-- proxool自动侦察各个连接状态的时间间隔(毫秒),侦察到空闲的连接就马上回收,超时的销毁--> 
+    <house-keeping-sleep-time>900000</house-keeping-sleep-time>
+    
+    <!-- 指因未有空闲连接可以分配而在队列中等候的最大请求数,超过这个请求数的用户连接就不会被接受--> 
+    <maximum-new-connections>150</maximum-new-connections>  
+     
+    <!-- 最少保持的空闲连接数-->    
+	<prototype-count>3</prototype-count>
+     
+    <maximum-active-time>500000</maximum-active-time>  
+    
+    <!-- 允许最大连接数,超过了这个连接，再有请求时，就排在队列中等候，最大的等待请求数由maximum-new-connections决定-->
+    <maximum-connection-count>40</maximum-connection-count>  
+    
+    <!-- 最小连接数-->
+    <minimum-connection-count>4</minimum-connection-count>   
+    <house-keeping-test-sql>select 1</house-keeping-test-sql>
+  </proxool>
+</something-else-entirely>
